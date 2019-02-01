@@ -1,32 +1,39 @@
-<template>
-  <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang='pug'>
+    #app
+        BaseLayout
+            router-view
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld.vue'
-
+    import BaseLayout from './components/base/BaseLayout'
     export default {
-        name: 'app',
         components: {
-            HelloWorld
+            BaseLayout
+        },
+        mounted () {
+            console.info('App version ' + this.$store.getters.appVersion)
         }
     }
 </script>
-<style lang="stylus">
-*
-    padding 0
-    margin 0
-#app
-  font-family 'Avenir', Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-html,body,#app
-    width:100%
-    background black
-    height:100%
-    overflow hidden
+
+<style lang='stylus'>
+    html
+        height 100%
+        box-sizing border-box
+    *
+        margin 0
+        padding 0
+
+    * *:before *:after
+        box-sizing border-box
+
+    body,html,#app
+        min-height 100%
+
+    @import url('https://fonts.googleapis.com/css?family=Raleway');
+
+    body {
+        font-family: 'Raleway', sans-serif;
+    }
+
 </style>

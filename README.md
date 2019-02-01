@@ -1,5 +1,24 @@
 # Chika.dance
 
+## Useful links
+Pug — html precompiler/templating language
+https://pugjs.org/api/getting-started.html
+
+Stylus — css precompiler
+http://stylus-lang.com/
+
+Standard — codestyle
+https://standardjs.com/
+
+Vue.js — Introduction
+https://vuejs.org/v2/guide/
+
+Vue.js — CLI
+https://cli.vuejs.org/
+
+ES6
+https://git.io/es6features
+
 ## Project setup
 ```
 npm install
@@ -13,11 +32,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your tests
-```
-npm run test
 ```
 
 ### Lints and fixes files
