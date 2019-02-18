@@ -5,6 +5,7 @@ import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
 import VueAnalytics from 'vue-analytics'
+import SuiVue from 'semantic-ui-vue'
 
 // Google Analytics - Please exclude this code when making a fork
 Vue.use(VueAnalytics, {
@@ -16,6 +17,10 @@ require('normalize.css')
 
 // Ionicons
 require('vue-ionicons/ionicons.css')
+
+/* Semantic UI for easy boilerplate */
+import 'semantic-ui-css/semantic.min.css'
+Vue.use(SuiVue)
 
 Vue.config.productionTip = false
 

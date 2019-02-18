@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    env: process.env
+    env: process.env,
+    muted: undefined
   },
   getters: {
     appBuild: (state) => {
@@ -13,12 +14,19 @@ export default new Vuex.Store({
     },
     appVersion: (state) => {
       return state.env.VERSION
-    }
+    },
+    getMuteState: (state) => {
+      return state.muted
+    },
   },
   mutations: {
-
+    changeMuteState (state, commit) {
+      state.muted = commit
+    }
   },
   actions: {
-
+    muteState (state, payload) {
+      state.commit('changeMuteState', payload)
+    }
   }
 })

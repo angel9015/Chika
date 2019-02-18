@@ -1,6 +1,6 @@
 <template lang='pug'>
     .ap-layout
-        keep-alive
+        //keep-alive
             Sidebar
         VideoPlayer
         main
@@ -22,6 +22,7 @@
 <style lang='stylus' scoped>
 
     .ap-layout
+        background black
         box-sizing: border-box
         display: flex
         flex-direction: row

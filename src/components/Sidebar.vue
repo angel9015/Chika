@@ -1,109 +1,35 @@
 <template lang="pug">
-    aside
-        .ui-sidebar
-            nav
-                main
-                    .ui-sidebar-item
-                        router-link(to="/" exact)
-                            CheckmarkIcon(w="30px" h="30px")
-                            span Overview
-                    .ui-sidebar-item
-                        router-link(to="/about")
-                            ListIcon(w="30px" h="30px")
-                            span About
+    sui-grid.tets
+        sui-grid-column(:width="6")
+            sui-menu(fluid vertical tabular)
+                sui-button(compact
+                    icon="pause"
+                    label-position="left"
+                    content="Pause")
 </template>
 
 <script>
-    import CheckmarkIcon from 'icons/md-today'
-    import StatsIcon from 'icons/md-stats'
-    import ListIcon from 'icons/md-journal'
-    import PeopleIcon from 'icons/ios-people'
-    import UsdIcon from 'icons/logo-usd'
-    import RibbonIcon from 'icons/md-ribbon'
-    import CompassIcon from 'icons/md-compass'
     export default {
-        name: 'Sidebar',
-        components: {
-            CheckmarkIcon, StatsIcon, ListIcon, PeopleIcon, UsdIcon, RibbonIcon, CompassIcon
+        name: 'TabularMenuExample',
+        data () {
+            return {
+                items: ['Overview', 'Stats'],
+                active: 'Overview'
+            }
         },
-        created () {
-            console.log('sidebar created.')
+        methods: {
+            isActive (name) {
+                return this.active === name
+            },
+            select (name) {
+                this.active = name
+            }
         }
     }
 </script>
-
-<style lang="stylus" scoped>
-
-    aside
-        width 238px
-        box-sizing: border-box;
-        min-height 100vh
-        user-select none
-
-    ease-out-expo = cubic-bezier(0.19, 1, 0.22, 1)
-    .ui-sidebar
-        box-sizing: border-box;
-        background #374258
-        border-radius 6px
-        position: fixed
-        z-index: 10
-        top: 1.5em
-        left: 1.5em
-        transition: transform .5s cubic-bezier(.19,1,.22,1)
-        //animation: 1s ease-out 0s 1 slideInFromLeft
-
-    main
-        display: flex
-        flex-direction: column
-        flex-wrap: nowrap
-        justify-content: center
-        align-content: stretch
-        align-items: flex-start
-        padding 1.5em
-        width 100%
-        box-sizing border-box
-
-    .ui-sidebar-item
+<style lang='stylus' scoped>
+    .item
         width:100%
-        padding 0.4em 0 0.4em 0
-        animation: 0.6s ease-out 0s 1 slideInFromLeft
-        a
-            font-weight: 300
-            display: flex
-            flex-direction: row
-            flex-wrap: nowrap
-            justify-content: flex-start
-            align-content: stretch
-            align-items: center
-            height 32px
-            line-height 22px
-            text-decoration none
-            font-size: 22px
-            color #fff
-            span
-                padding-left: 0.7em
-
-        .router-link-active
-            color #7299ff
-    nav
-        width 238px
-        border-radius 6px
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-content: stretch;
-        align-items: center;
-    .logo
-        height 238px
-        width 238px
-
-    @keyframes slideInFromLeft
-        0%
-            transform translateX(-0.9em)
-            opacity 0.3
-        100%
-            transform translateX(0)
-            opacity 1
-
+        color rgba(0,0,0,.6)
+        background-color: #cacbcd
 </style>
