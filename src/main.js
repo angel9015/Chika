@@ -9,7 +9,8 @@ import SuiVue from 'semantic-ui-vue'
 
 // Google Analytics - Please exclude this code when making a fork
 Vue.use(VueAnalytics, {
-  id: 'UA-64566721-5'
+  id: 'UA-64566721-5',
+  router
 })
 
 // Normalize.css
