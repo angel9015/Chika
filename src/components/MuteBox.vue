@@ -28,7 +28,7 @@
         color rgba(0,0,0,.6)
         background-color: #cacbcd
         padding 3em
-        margin: 25px 4vw 0 0
+        margin: 25px 4vw
         display: inline-block
         &:last-child
             margin-right: 0
