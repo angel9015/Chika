@@ -2,8 +2,6 @@
     video(autoplay="autoplay" v-bind:muted="getMuteState" style="width:100%" title="Kaguya-Sama Wa Kokurasetai - 03 ED" loop="loop" onended="var v=this;setTimeout(function(){v.play()},300)" ref="video" )
         source(src="http://olympus.elkia.club/output.webm" type="video/webm")
         source(src="http://olympus.elkia.club/output.mp4")
-        img(alt="Kaguya-Sama Wa Kokurasetai - 03 ED" src="../assets/Kaguya-Sama_Wa_Kokurasetai_-_03_ED.jpg" style="position:absolute;left:0;" width="100%" title="Video playback is not supported by your browser")
-
 </template>
 
 <script>
