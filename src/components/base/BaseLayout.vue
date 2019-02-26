@@ -4,17 +4,21 @@
             Sidebar
         VideoPlayer
         main
+            BaseSection
+                MuteBox
             slot
 </template>
 
 <script>
     import Sidebar from '../Sidebar'
     import VideoPlayer from '../VideoPlayer'
+    import MuteBox from '../MuteBox'
     export default {
         name: 'BaseLayout',
         components: {
             VideoPlayer,
-            Sidebar
+            Sidebar,
+            MuteBox
         }
     }
 </script>

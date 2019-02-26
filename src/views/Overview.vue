@@ -1,14 +1,8 @@
 <template lang='pug'>
         BaseSection
-            MuteBox
 </template>
 
 <script>
-    import MuteBox from '../components/MuteBox'
-    export default {
-        name: 'Overview',
-        components: { MuteBox }
-    }
 </script>
 
 <style lang='stylus' scoped>

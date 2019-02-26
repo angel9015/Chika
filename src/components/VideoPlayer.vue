@@ -2,6 +2,7 @@
     video(autoplay="autoplay" v-bind:muted="getMuteState" style="width:100%" title="Kaguya-Sama Wa Kokurasetai - 03 ED" loop="loop" onended="var v=this;setTimeout(function(){v.play()},300)" ref="video" )
         source(src="//stream.chika.dance/output.webm" type="video/webm")
         source(src="//stream.chika.dance/output.mp4")
+
 </template>
 
 <script>
