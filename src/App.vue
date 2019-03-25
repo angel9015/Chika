@@ -9,9 +9,6 @@
     export default {
         components: {
             BaseLayout
-        },
-        mounted () {
-            console.info('App version ' + this.$store.getters.appVersion)
         }
     }
 </script>

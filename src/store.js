@@ -5,23 +5,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    env: process.env,
-    muted: undefined
+    videoPlayer: {
+      muted: undefined,
+      controls: false
+    }
   },
   getters: {
-    appBuild: (state) => {
-      return state.env.NODE_ENV === 'development' ? 'dev' : state.env.NODE_ENV === 'production' ? 'build' : 'weird'
-    },
-    appVersion: (state) => {
-      return state.env.VERSION
-    },
     getMuteState: (state) => {
-      return state.muted
+      return state.videoPlayer.muted
     },
+    checkControls: (state) => {
+      return state.videoPlayer.controls
+    }
   },
   mutations: {
     changeMuteState (state, commit) {
-      state.muted = commit
+      state.videoPlayer.muted = commit
     }
   },
   actions: {

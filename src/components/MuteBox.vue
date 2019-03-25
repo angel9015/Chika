@@ -39,6 +39,9 @@
             transform: translateY(-16px)
         h2
             color rgba(0,0,0,.6)
+        // center on mobile
+        @media screen and (max-width: 992px)
+            margin 0 auto
     .button
         float right
     p

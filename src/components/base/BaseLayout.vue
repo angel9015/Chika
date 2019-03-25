@@ -1,7 +1,6 @@
 <template lang='pug'>
     .ap-layout
-        //keep-alive
-            Sidebar
+        i-toast
         VideoPlayer
         main
             BaseSection
@@ -10,14 +9,14 @@
 </template>
 
 <script>
-    import Sidebar from '../Sidebar'
     import VideoPlayer from '../VideoPlayer'
     import MuteBox from '../MuteBox'
+    import IToast from '../iToast'
     export default {
         name: 'BaseLayout',
         components: {
+            IToast,
             VideoPlayer,
-            Sidebar,
             MuteBox
         }
     }
