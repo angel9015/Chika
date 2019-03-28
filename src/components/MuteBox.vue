@@ -1,7 +1,8 @@
 <template  lang="pug">
     sui-container(text v-if="getMuteState").box.up-4
         h2(is="sui-header") This experience is best enjoyed with sound
-        p Closing this box will unmute the video
+        p(v-if='!getMobileDetect') Closing this box will unmute the video
+        p(v-if='getMobileDetect') Tap the close button to unmute the video
         sui-button(positive basic content="Close" v-on:click="unmute")
 </template>
 
@@ -10,13 +11,19 @@
     export default {
         name: 'MuteBox',
         computed: {
-            ...mapGetters(['getMuteState'])
+            ...mapGetters(['getMuteState', 'getMobileDetect'])
+        },
+        mounted: function () {
+            const Md = require('mobile-detect')
+            this.MobileDetect(new Md(navigator.userAgent).mobile())
         },
         methods: {
             unmute: function (event) {
-                this.muteState(false)
+                if (this.muteState) {
+                    this.muteState(false)
+                }
             },
-            ...mapActions(['muteState'])
+            ...mapActions(['muteState', 'MobileDetect'])
         }
     }
 </script>
