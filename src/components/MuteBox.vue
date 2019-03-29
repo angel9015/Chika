@@ -1,15 +1,21 @@
 <template  lang="pug">
-    sui-container(text v-if="getMuteState").box.up-4
-        h2(is="sui-header") This experience is best enjoyed with sound
-        p(v-if='!getMobileDetect') Closing this box will unmute the video
-        p(v-if='getMobileDetect') Tap the close button to unmute the video
-        sui-button(positive basic content="Close" v-on:click="unmute")
+    sui-modal(v-bind:open="getMuteState" basic=true aligned="top" animation="fly down" size="standard")
+        .modal
+            sui-container(text).box
+                h2(is="sui-header") This experience is best enjoyed with sound
+                sui-modal-description.desc(v-if='!getMobileDetect')
+                    p Closing this box will unmute the video
+                sui-button(positive basic floated="right" v-on:click.native="unmute" class="modal-action")
+                    md-volume-high-icon(w="16" h="16").icon
+                    p Unmute
 </template>
 
 <script>
     import { mapActions, mapGetters } from 'vuex'
+    import MdVolumeHighIcon from 'vue-ionicons/dist/md-volume-high'
     export default {
         name: 'MuteBox',
+        components: { MdVolumeHighIcon },
         computed: {
             ...mapGetters(['getMuteState', 'getMobileDetect'])
         },
@@ -18,7 +24,7 @@
             this.MobileDetect(new Md(navigator.userAgent).mobile())
         },
         methods: {
-            unmute: function (event) {
+            unmute: function () {
                 if (this.muteState) {
                     this.muteState(false)
                 }
@@ -30,27 +36,32 @@
 
 <style lang="stylus" scoped>
     .box
-        position absolute
-        top 0
+        padding 2em 0
         color rgba(0,0,0,.6)
-        background-color: #cacbcd
-        padding 3em
-        margin: 25px 4vw
-        display: inline-block
-        &:last-child
-            margin-right: 0
-        &:first-child
-            margin-left: 2.5vw
-        &.up-4
-            box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21)
-            transform: translateY(-16px)
         h2
             color rgba(0,0,0,.6)
-        // center on mobile
-        @media screen and (max-width: 992px)
-            margin 0 auto
-    .button
-        float right
-    p
-        float left
+        //fixes weird displacement of the button
+        @media only screen and (max-width: 991px) and (min-width: 768px)
+            width: auto!important
+        //mobile swag
+        @media only screen and (max-width: 768px)
+            color rgba(255,255,255,.6)
+            h2
+                color rgba(255,255,255,.6)
+                padding-bottom 1em
+            .desc
+                display none;
+    .modal
+        background: #cacbcd
+        padding 2em
+        box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21)
+        @media only screen and (max-width: 768px)
+            background: none
+            box-shadow: none
+    .icon
+        padding 0.1em
+    .modal-action
+        transform: translateY(-16px)
+        p
+            float right
 </style>

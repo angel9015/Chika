@@ -1,5 +1,5 @@
 <template lang='pug'>
-    video(autoplay="autoplay" v-bind:muted="getMuteState" style="width:100%" loop="loop" onended="var v=this;setTimeout(function(){v.play()},300)" ref="video" )
+    video(ref="video" autoplay="autoplay" loop="loop" v-bind:muted="getMuteState" style="width:100%" @onended="loop" @canplaythrough="setPlayable()" @getPlayable="loop" v-bind:controls='getMobileDetect')
         source(src="//stream.chika.dance/output.webm" type="video/webm")
         source(src="//stream.chika.dance/output.mp4")
 
@@ -9,25 +9,30 @@
     import { mapActions, mapGetters } from 'vuex'
     export default {
         name: 'VideoPlayer',
+        data: function () {
+            return {
+                video: {}
+            }
+        },
         computed: {
-            ...mapGetters(['getMuteState'])
+            ...mapGetters(['getMuteState', 'getPlayable','getMobileDetect'])
         },
         mounted: function () {
             this.$nextTick(function () {
-                // If autoplay got blocked, start playing the video muted
-                if (this.$refs.video.paused) {
-                    try {
-                        this.$refs.video.muted = true
-                        this.$refs.video.play()
-                        this.muteState(true)
-                    } catch (e) {
-                        console.log(e)
-                    }
-                }
+                // Bind the video to data
+                this.video = this.$refs.video
             })
         },
         methods: {
-            ...mapActions(['muteState'])
+            loop: function () {
+                setTimeout(function () {
+                    this.$refs.video.play()
+                }, 300)
+            },
+            setPlayable: function () {
+                this.playable(true)
+            },
+            ...mapActions(['muteState', 'playable'])
         }
     }
 </script>
@@ -43,4 +48,7 @@
         bottom: 0;
         min-width: 100%;
         min-height: 100%;
+        @media only screen and (max-width: 768px)
+            object-fit cover
+
 </style>

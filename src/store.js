@@ -7,8 +7,9 @@ export default new Vuex.Store({
   state: {
     mobileDetect: undefined,
     videoPlayer: {
-      muted: undefined,
-      controls: false
+      muted: true,
+      controls: false,
+      playable: undefined
     }
   },
   getters: {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     checkControls: (state) => {
       return state.videoPlayer.controls
+    },
+    getPlayable: (state) => {
+      return state.videoPlayer.playable
     }
   },
   mutations: {
@@ -28,11 +32,17 @@ export default new Vuex.Store({
     },
     changeMobileDetect (state, commit) {
       state.mobileDetect = commit
+    },
+    changePlayable (state, commit) {
+      state.videoPlayer.playable = commit
     }
   },
   actions: {
     muteState (state, payload) {
       state.commit('changeMuteState', payload)
+    },
+    playable (state, payload) {
+      state.commit('changePlayable', payload)
     },
     MobileDetect (state, payload) {
       state.commit('changeMobileDetect', payload)
