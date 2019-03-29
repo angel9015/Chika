@@ -15,12 +15,13 @@
             }
         },
         computed: {
-            ...mapGetters(['getMuteState', 'getPlayable','getMobileDetect'])
+            ...mapGetters(['getMuteState', 'getPlayable', 'getMobileDetect'])
         },
         mounted: function () {
             this.$nextTick(function () {
                 // Bind the video to data
                 this.video = this.$refs.video
+                this.$ga.event('video', 'mounted')
             })
         },
         methods: {
@@ -39,6 +40,7 @@
 
 <style lang="stylus" scoped>
     video
+        transition: all 0.6s ease-out
         background black
         object-fit contain
         height 100vh

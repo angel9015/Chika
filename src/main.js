@@ -7,6 +7,9 @@ import camelCase from 'lodash/camelCase'
 import VueAnalytics from 'vue-analytics'
 import SuiVue from 'semantic-ui-vue'
 
+/* Semantic UI for easy boilerplate */
+import 'semantic-ui-css/semantic.min.css'
+
 // Google Analytics - Please exclude this code when making a fork
 Vue.use(VueAnalytics, {
   id: 'UA-64566721-5',
@@ -19,8 +22,6 @@ require('normalize.css')
 // Ionicons
 require('vue-ionicons/ionicons.css')
 
-/* Semantic UI for easy boilerplate */
-import 'semantic-ui-css/semantic.min.css'
 Vue.use(SuiVue)
 
 Vue.config.productionTip = false

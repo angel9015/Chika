@@ -20,12 +20,15 @@
             ...mapGetters(['getMuteState', 'getMobileDetect'])
         },
         mounted: function () {
-            const Md = require('mobile-detect')
-            this.MobileDetect(new Md(navigator.userAgent).mobile())
+            this.$nextTick(function () {
+                const Md = require('mobile-detect')
+                this.MobileDetect(new Md(navigator.userAgent).mobile())
+            })
         },
         methods: {
             unmute: function () {
                 if (this.muteState) {
+                    this.$ga.event('video', 'unmuted')
                     this.muteState(false)
                 }
             },
@@ -38,6 +41,7 @@
     .box
         padding 2em 0
         color rgba(0,0,0,.6)
+        transition: all 0.4s ease-out
         h2
             color rgba(0,0,0,.6)
         //fixes weird displacement of the button
@@ -54,6 +58,7 @@
     .modal
         background: #cacbcd
         padding 2em
+        transition: all 0.6s ease
         box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21)
         @media only screen and (max-width: 768px)
             background: none
