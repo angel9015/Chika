@@ -9,7 +9,7 @@
         name: 'iToast',
         data () {
             return {
-                hover: false
+                hover: undefined
             }
         },
         components: { MdInformationCircleOutlineIcon }
