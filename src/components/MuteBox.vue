@@ -5,17 +5,24 @@
                 h2(is="sui-header") This experience is best enjoyed with sound
                 sui-modal-description.desc(v-if='!getMobileDetect')
                     p Closing this box will unmute the video
-                sui-button(positive basic floated="right" v-on:click.native="unmute" class="modal-action")
-                    md-volume-high-icon(w="16" h="16").icon
+                sui-button(positive basic floated="right" v-on:click.native="unmute" class="modal-action" @mouseover="hover = 'shake'" @mouseleave="hover = ''")
+                    md-volume-high-icon(v-if="hover || !getMobileDetect" w="16" h="16").icon
+                    md-volume-mute-icon(v-if="!hover && getMobileDetect" w="16" h="16" animate="shake").icon
                     p Unmute
 </template>
 
 <script>
     import { mapActions, mapGetters } from 'vuex'
     import MdVolumeHighIcon from 'vue-ionicons/dist/md-volume-high'
+    import MdVolumeMuteIcon from 'vue-ionicons/dist/md-volume-mute'
     export default {
         name: 'MuteBox',
-        components: { MdVolumeHighIcon },
+        components: { MdVolumeMuteIcon, MdVolumeHighIcon },
+        data () {
+            return {
+                hover: undefined
+            }
+        },
         computed: {
             ...mapGetters(['getMuteState', 'getMobileDetect'])
         },
@@ -38,10 +45,14 @@
 </script>
 
 <style lang="stylus" scoped>
+    .true
+        display false
+    .false
+        display block
     .box
         padding 2em 0
         color rgba(0,0,0,.6)
-        transition: all 0.4s ease-out
+        transition: color 0.4s ease-out
         h2
             color rgba(0,0,0,.6)
         //fixes weird displacement of the button
@@ -58,7 +69,7 @@
     .modal
         background: #cacbcd
         padding 2em
-        transition: all 0.6s ease
+        transition background 0.6s ease, box-shadow 0.2s ease-in-out
         box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22), 0 25px 55px 0 rgba(0,0,0,0.21)
         @media only screen and (max-width: 768px)
             background: none

@@ -1,5 +1,6 @@
 <template lang='pug'>
-    video(ref="video" autoplay="autoplay" loop="loop" v-bind:muted="getMuteState" style="width:100%" @onended="loop" @canplaythrough="setPlayable()" @getPlayable="loop" v-bind:controls='getMobileDetect')
+    video(ref="video" autoplay="autoplay" loop="loop" v-bind:muted="getMuteState" @onended="endedVideo"    @canplaythrough="setPlayable"    @getPlayable="playVideo"    @ontimeupdate="progressVideo"
+    v-bind:controls='getMobileDetect')
         source(src="//stream.chika.dance/output.webm" type="video/webm")
         source(src="//stream.chika.dance/output.mp4")
 
@@ -25,9 +26,19 @@
             })
         },
         methods: {
-            loop: function () {
+            progressVideo: function (ab) {
+                console.log('hi')
+                console.log(ab)
+            },
+            playVideo: function () {
+                this.$refs.video.play()
+            },
+            endedVideo: function () {
+                this.$ga.event('video', 'ended')
+
+                // loop
                 setTimeout(function () {
-                    this.$refs.video.play()
+                    this.playVideo()
                 }, 300)
             },
             setPlayable: function () {
