@@ -1,6 +1,6 @@
 <template lang='pug'>
     .ap-layout
-        i-toast
+        //i-toast
         VideoPlayer
         MuteBox
         main

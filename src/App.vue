@@ -26,11 +26,11 @@
 
     body,html,#app
         min-height 100%
-/*
+
     @import url('https://fonts.googleapis.com/css?family=Raleway');
 
     body {
         font-family: 'Raleway', sans-serif;
     }
-*/
+
 </style>
