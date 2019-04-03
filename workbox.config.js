@@ -5,5 +5,13 @@ module.exports = {
   importsDirectory: './wb-assets',
   clientsClaim: true,
   exclude: [/\.map$/, /precache-manifest.*.js/],
-  swDest: 'sw.js'
+  swDest: 'sw.js',
+  manifestTransforms: [
+    // exclude from sw
+    (originalManifest) => {
+      const manifest = originalManifest.filter(
+        (entry) => entry.url !== '_redirects')
+      return { manifest }
+    }
+  ]
 }
