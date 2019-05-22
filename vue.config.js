@@ -1,7 +1,6 @@
 let path = require('path')
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
-const { GenerateSW } = require('workbox-webpack-plugin')
 module.exports = {
   // trick I googled to show the app version in the app
   chainWebpack: config => {
@@ -19,7 +18,6 @@ module.exports = {
     if (process.env.NODE_ENV === 'production') {
       return {
         plugins: [
-          new GenerateSW(require('./workbox.config.js')),
           new PurgecssPlugin({
             paths: glob.sync([
               path.join(__dirname, './../src/index.html'),

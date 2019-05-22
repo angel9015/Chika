@@ -22,9 +22,7 @@
 </script>
 
 <style lang='stylus' scoped>
-
     .ap-layout
-        background black
         box-sizing: border-box
         display: flex
         flex-direction: row
@@ -41,4 +39,12 @@
         justify-content: flex-start
         align-content: center
         align-items: center
+
+    @keyframes FadeIn
+        0%
+            opacity 0
+            filter grayscale(100%)
+        100%
+            filter grayscale(0%)
+            opacity 1
 </style>

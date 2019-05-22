@@ -52,7 +52,7 @@
 <style lang="stylus" scoped>
     video
         transition: all 0.6s ease-out
-        background black
+        background: #101214;
         object-fit contain
         height 100vh
         width 100vw
@@ -63,5 +63,4 @@
         min-height: 100%;
         @media only screen and (max-width: 768px)
             object-fit cover
-
 </style>

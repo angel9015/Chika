@@ -32,14 +32,80 @@
         <meta property="og:url" content="https://knowyourmeme.com/memes/chika-dance">
         <meta name="description" content="Kaguya Sama Wa Kokurasetai - 03 ED">
         <meta name="author" content="https://cerx.pw">
+        <style>
+            /* Loading screen */
+            body {
+                background: #101214;
+                font-family: Verdana, Geneva, sans-serif;
+                font-size: 1.3em;
+                color: #bcb1b9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+            #loader {
+                width: 60vmin;
+                margin: 0 auto;
+                filter: blur(1px);
+                animation: 2s ease-out forwards 1 loader;
+            }
+            @-moz-keyframes loader {
+                0% {
+                    opacity: 0;
+                    filter: grayscale(100%);
+                }
+                100% {
+                    transform: translateX(0);
+                    filter: grayscale(0%);
+                    opacity: 1;
+                }
+            }
+            @-webkit-keyframes loader {
+                0% {
+                    transform: translateX(-10%);
+                    filter: grayscale(100%);
+                }
+                100% {
+                    transform: translateX(0);
+                    filter: grayscale(0%);
+                    opacity: 1;
+                }
+            }
+            @-o-keyframes loader {
+                0% {
+                    transform: translateX(-10%);
+                    filter: grayscale(100%);
+                }
+                100% {
+                    transform: translateX(0);
+                    filter: grayscale(0%);
+                    opacity: 1;
+                }
+            }
+            @keyframes loader {
+                0% {
+                    transform: translateX(-10%);
+                    filter: grayscale(100%);
+                }
+                100% {
+                    transform: translateX(0);
+                    filter: grayscale(0%);
+                    opacity: 1;
+                }
+            }
+        </style>
     </head>
     <body>
         <noscript>
             <h1><strong>We're sorry but <a href="//chika.dance">chika.dance</a> doesn't dance properly without JavaScript enabled. Please enable it to continue.</strong></h1>
         </noscript>
         <div id="app">
-            <h1>Fetching resources...</h1>
+            <p>Please Wait...</p>
+            <video ref="video" autoplay="autoplay" loop="loop" muted id="loader" poster="//stream.chika.dance/loading.png">
+                <source src="//stream.chika.dance/loading.mp4">
+            </video>
         </div>
         <!-- built files will be auto injected -->
-        </body>
+    </body>
 </html>
