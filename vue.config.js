@@ -1,21 +1,30 @@
 let path = require('path')
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const glob = require('glob-all')
+
+const PATHS = {
+  src: path.join(__dirname, 'src')
+}
+
 module.exports = {
-  // trick I googled to show the app version in the app
-  chainWebpack: config => {
-    config
-      .plugin('define')
-      .tap(args => {
-        let v = JSON.stringify(require('./package.json').version)
-        args[0]['process.env']['VERSION'] = v
-        return args
-      })
-  },
-  // ionicons
-  configureWebpack: {
-    resolve: {
-      alias: {
-        'icons': path.resolve(__dirname, 'node_modules/vue-ionicons/dist')
+  configureWebpack: config => {
+    return {
+      resolve: { // ionicons
+        alias: {
+          'icons': path.resolve(__dirname, 'node_modules/vue-ionicons/dist')
+        }
       }
     }
+  },
+
+  baseUrl: undefined,
+  outputDir: undefined,
+  assetsDir: undefined,
+  runtimeCompiler: undefined,
+  productionSourceMap: undefined,
+  parallel: undefined,
+
+  css: {
+    sourceMap: true
   }
 }

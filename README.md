@@ -1,8 +1,17 @@
-# Chika.dance [![Netlify Status](https://api.netlify.com/api/v1/badges/b031f57d-08fe-40ed-a82b-550982681e64/deploy-status)](https://app.netlify.com/sites/nostalgic-hoover-b4049e/deploys)
-
+# [Chika.dance](//chika.dance) [![Netlify Status](https://api.netlify.com/api/v1/badges/b031f57d-08fe-40ed-a82b-550982681e64/deploy-status)](https://app.netlify.com/sites/nostalgic-hoover-b4049e/deploys)
 [Know Your Meme](https://knowyourmeme.com/memes/chika-dance) | A single-page app in Vue.js.
 
-## Useful links
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+#### Useful links for development
 
 Standard — codestyle
 https://standardjs.com/
@@ -24,16 +33,6 @@ https://semantic-ui-vue.github.io
 
 vue-ionicons - Icon set
 https://github.com/mazipan/vue-ionicons
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
 ### Compiles and minifies for production
 ```

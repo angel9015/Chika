@@ -4,8 +4,15 @@ import router from './router'
 import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
+// Google analytics
 import VueAnalytics from 'vue-analytics'
+// Semantic UI for easy boilerplate
+import 'semantic-ui-css/semantic.min.css'
 import SuiVue from 'semantic-ui-vue'
+// Normalize.css
+import 'normalize.css'
+// Ionicons
+import 'vue-ionicons/ionicons.css'
 
 // Google Analytics - Please exclude this code when making a fork
 Vue.use(VueAnalytics, {
@@ -13,14 +20,6 @@ Vue.use(VueAnalytics, {
   router
 })
 
-// Normalize.css
-require('normalize.css')
-
-// Ionicons
-require('vue-ionicons/ionicons.css')
-
-/* Semantic UI for easy boilerplate */
-import 'semantic-ui-css/semantic.min.css'
 Vue.use(SuiVue)
 
 Vue.config.productionTip = false
@@ -63,3 +62,14 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+// Register SW
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+      console.log('SW registered: ', registration)
+    }).catch(registrationError => {
+      console.log('SW registration failed: ', registrationError)
+    })
+  })
+}
