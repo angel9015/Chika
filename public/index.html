@@ -27,11 +27,20 @@
         <!-- Meta -->
         <title>Chika.dance</title>
         <meta property="og:title" content="Chika Dance">
+        <meta name="og:site_name" content="Chika.Dance">
         <meta property="og:type" content="video.other">
+        <meta name="og:email" content="secretary@chika.dance">
+        <meta property="og:image" content="//stream.chika.dance/output.png">
+        <meta property="og:image" content="//stream.chika.dance/output.gif">
+        <meta property="og:video" content="//stream.chika.dance/output.mp4">
+        <meta property="og:video:type" content="video/mp4">
         <meta property="og:video" content="//stream.chika.dance/output.webm">
+        <meta property="og:video:type" content="video/webm">
         <meta property="og:url" content="https://knowyourmeme.com/memes/chika-dance">
-        <meta name="description" content="Kaguya Sama Wa Kokurasetai - 03 ED">
-        <meta name="author" content="https://cerx.pw">
+        <meta property="og:description" content="Kaguya Sama Wa Kokurasetai - Episode 3 ED - ED 02">
+        <meta name="description" content="Kaguya Sama Wa Kokurasetai - Episode 3 ED - ED 02">
+        <meta name="keywords" content="ED 02, ED S01E03, Chika Dance, Chika Fujiwara, Kaguya Sama Wa Kokurasetai, Love Is War">
+        <meta name="author" content="https://github.com/CerxMe/Chika.dance">
         <style>
             /* Loading screen */
             body {
@@ -48,9 +57,9 @@
                 width: 60vmin;
                 margin: 0 auto;
                 filter: blur(1px);
-                animation: 2s ease-out forwards 1 loader;
+                animation: 2s ease-out forwards 1 SplashChikaLoader;
             }
-            @-moz-keyframes loader {
+            @-moz-keyframes SplashChikaLoader {
                 0% {
                     opacity: 0;
                     filter: grayscale(100%);
@@ -61,7 +70,7 @@
                     opacity: 1;
                 }
             }
-            @-webkit-keyframes loader {
+            @-webkit-keyframes SplashChikaLoader {
                 0% {
                     transform: translateX(-10%);
                     filter: grayscale(100%);
@@ -72,7 +81,7 @@
                     opacity: 1;
                 }
             }
-            @-o-keyframes loader {
+            @-o-keyframes SplashChikaLoader {
                 0% {
                     transform: translateX(-10%);
                     filter: grayscale(100%);
@@ -83,7 +92,7 @@
                     opacity: 1;
                 }
             }
-            @keyframes loader {
+            @keyframes SplashChikaLoader {
                 0% {
                     transform: translateX(-10%);
                     filter: grayscale(100%);
