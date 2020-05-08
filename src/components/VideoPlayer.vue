@@ -1,8 +1,8 @@
 <template lang='pug'>
     video(ref="video" autoplay="autoplay" loop="loop" v-bind:muted="getMuteState" @onended="endedVideo"    @canplaythrough="setPlayable"    @getPlayable="playVideo"    @ontimeupdate="progressVideo"
     v-bind:controls='getMobileDetect')
-        source(src="//stream.chika.dance/output.webm" type="video/webm" )
-        source(src="//stream.chika.dance/output.mp4"  type="video/mp4")
+        source(src="//olympus.elkia.club/output.webm" type="video/webm" )
+        source(src="//olympus.elkia.club/output.mp4"  type="video/mp4")
 
 </template>
 
