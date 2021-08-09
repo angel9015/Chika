@@ -1,5 +1,5 @@
 <template lang='pug'>
-    BaseSection
+  BaseSection
 </template>
 
 <script>

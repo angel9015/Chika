@@ -5,7 +5,7 @@
                 h2(is="sui-header") This experience is best enjoyed with sound
                 sui-modal-description.desc(v-if='!getMobileDetect')
                     p Closing this box will unmute the video
-                sui-button(positive basic floated="right" v-on:click.native="unmute" class="modal-action" @mouseover="hover = 'shake'" @mouseleave="hover = ''")
+                sui-button(positive basic floated="right" @click="unmute" class="modal-action" @mouseover="hover = 'shake'" @mouseleave="hover = ''")
                     md-volume-high-icon(v-if="hover || !getMobileDetect" w="16" h="16").icon
                     md-volume-mute-icon(v-if="!hover && getMobileDetect" w="16" h="16" animate="shake").icon
                     p Unmute
@@ -35,7 +35,6 @@
         methods: {
             unmute: function () {
                 if (this.muteState) {
-                    this.$ga.event('video', 'unmuted')
                     this.muteState(false)
                 }
             },

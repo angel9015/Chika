@@ -4,8 +4,6 @@ import router from './router'
 import store from './store'
 import upperFirst from 'lodash/upperFirst'
 import camelCase from 'lodash/camelCase'
-// Google analytics
-import VueAnalytics from 'vue-analytics'
 // Semantic UI for easy boilerplate
 import 'semantic-ui-css/semantic.min.css'
 import SuiVue from 'semantic-ui-vue'
@@ -13,12 +11,6 @@ import SuiVue from 'semantic-ui-vue'
 import 'normalize.css'
 // Ionicons
 import 'vue-ionicons/ionicons.css'
-
-// Google Analytics - Please exclude this code when making a fork
-Vue.use(VueAnalytics, {
-  id: 'UA-64566721-5',
-  router
-})
 
 Vue.use(SuiVue)
 
